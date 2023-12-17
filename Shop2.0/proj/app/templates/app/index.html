@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&family=Montserrat:wght@300&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href="{% static 'proj/css/styles.css'%}">
+</head>
+<body>
+    <header class='header'>
+        <div class="container">
+            <div class="header__wrap">
+                <div class="header__block">
+                    <h1 class="logo">Shop</h1>
+                        <div class="createBlock">
+                            <h1 ><a class="create" href="{% url 'create' %}">Create</a></h1>
+
+                        </div>
+
+            </div>
+            <div class='line'/>
+
+            </div>
+        </div>
+    </header>    
+    <div class='main'>
+        <div class="container">
+            <div class="main__wrap">
+                <div class='main__title_block'>
+                    <h1 class='main__title'>Товары</h1>
+                </div>
+
+                <form method="post" action="cart/" class='products__block'>
+
+                    {% for product in products %}
+
+                    <div class="product" >
+                        <div class="product__border">
+                            <img class="pic" src='{{product.pic}}'>
+                        </div>
+                        <div class="product__border">
+                            <h1 class="title">{{product.title}}</h1>
+                        </div>
+                        <div class="content__block">
+                            <p class="content">{{product.content}}</p>
+                        </div>
+
+                        <div class="content__block">
+                            <p class="title">{{product.price}} руб.</p>
+                        </div>
+
+                        <div class="btns__block">
+                            <a class="cart__btn__inlist" href="{% url 'product' product.id %}">About</a>
+                            <a class="cart__btn__inlist" href="{% url 'delete' product.id %}">Delete</a>
+                            <a class="cart__btn__inlist" href="{% url 'update' product.id %}">Update</a>
+                            <a class="cart__btn__inlist" href="{% url 'buy' product.id %}">Buy</a>
+                        </div>
+
+
+
+                    </div>
+                    {% endfor %}
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create</title>
+    <link rel='stylesheet' href="{% static 'proj/css/create.css'%}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&family=Montserrat:wght@300&family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    
+    <a href='/' class='link_back'>Back</a>
+    
+
+<div class="create__form">
+    <h1 class="title">Create</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <table>{{ form }}</table>
+    <div>
+        <button class="btn">Create</button>
+    </div>    
+</form>
+</div>
+
+</body>
+</html>
